@@ -8,13 +8,20 @@ const port = 3000
 
 // HTTP METHODS
 app.get('/v1/explorers', (req,res) => {
-  console.log(`API Exploers GET ALL requests ${new Date()}`)
+  console.log(`API Explorers GET ALL requests ${new Date()}`)
   const explorer1 = {id: 1, name: 'Ruben1'}
   const explorer2 = {id: 2, name: 'Ruben2'}
   const explorer3 = {id: 3, name: 'Ruben3'}
   const explorer4 = {id: 4, name: 'Ruben4'}
   const explorers = [explorer1, explorer2, explorer3, explorer4]
   res.status(200).json(explorers)
+})
+
+app.get('/v1/explorers/:id', (req,res) =>{
+  console.log(`API Explorers GET request ${new Date()}`)
+  console.log(`Getting explorer with id ${req.params.id}`)
+  const explorer = {id:1, name:'Ruben'}
+  res.status(200).json(explorer)
 })
 
 // Con esto inicializamos esta app
